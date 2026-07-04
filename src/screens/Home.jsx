@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import TopAppBar from "../components/layout/TopAppBar";
 
 const quickActions = [
@@ -8,6 +9,8 @@ const quickActions = [
 ];
 
 export default function Home() {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-full pb-32 bg-gray-50/50">
       <style>{`
@@ -28,17 +31,16 @@ export default function Home() {
 
       <TopAppBar points="1,250" />
 
-  
       <main className="w-full px-4 pt-4 flex flex-col gap-4">
-        
+
         {/* TARJETA SALDO */}
         <section className="bg-white rounded-[1.25rem] p-4 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col relative overflow-hidden">
           <div className="absolute top-0 right-0 w-28 h-28 bg-lime-50 rounded-full blur-3xl opacity-60 -mr-8 -mt-8 pointer-events-none"></div>
-          
+
           <h2 className="text-[9px] font-bold text-gray-500 uppercase tracking-widest mb-1 z-10">
             SALDO ECOBILLETERA
           </h2>
-     
+
           <span className="text-3xl font-extrabold text-gray-900 tracking-tight z-10">
             S/ 45.50
           </span>
@@ -60,11 +62,11 @@ export default function Home() {
 
         {/* TARJETA PANDA */}
         <section className="bg-white rounded-[1.25rem] p-3.5 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex items-center gap-3">
-       
+
           <div className="w-[60px] h-[60px] rounded-full bg-gray-100 flex-shrink-0 flex items-center justify-center text-3xl border border-gray-100 shadow-sm overflow-hidden">
             🐼
           </div>
-          
+
           <div className="flex flex-col gap-1">
             <div>
               <h3 className="text-base font-bold text-gray-900 leading-tight">
@@ -81,7 +83,7 @@ export default function Home() {
               <span className="bg-[#E0F2FE] text-[#0288D1] px-2.5 py-0.5 rounded-full text-[9px] font-bold flex items-center gap-1">
                 <span className="material-symbols-outlined text-[11px]" style={{ fontVariationSettings: "'FILL' 1" }}>
                   sentiment_satisfied
-                </span> 
+                </span>
                 Feliz
               </span>
             </div>
@@ -89,8 +91,10 @@ export default function Home() {
         </section>
 
         {/* BOTÓN FOTO */}
- 
-        <button className="w-full h-12 bg-[#C0F200] text-gray-900 rounded-2xl font-bold flex items-center justify-center gap-2 shadow-[0_8px_20px_rgba(192,242,0,0.25)] active:scale-95 transition-all duration-200">
+        <button
+          onClick={() => navigate("/scan")}
+          className="w-full h-12 bg-[#C0F200] text-gray-900 rounded-2xl font-bold flex items-center justify-center gap-2 shadow-[0_8px_20px_rgba(192,242,0,0.25)] active:scale-95 transition-all duration-200"
+        >
           <span className="material-symbols-outlined text-[18px] font-medium">
             photo_camera
           </span>
@@ -100,11 +104,10 @@ export default function Home() {
         {/* QUICK ACTIONS */}
         <section className="grid grid-cols-2 gap-3">
           {quickActions.map((action, index) => (
-            <button 
+            <button
               key={index}
               className="bg-white rounded-[1.25rem] p-3 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col items-center justify-center gap-2 active:scale-95 transition-all duration-200"
             >
-             
               <div className={`w-10 h-10 rounded-full ${action.bg} ${action.color} flex items-center justify-center`}>
                 <span className="material-symbols-outlined text-[18px]" style={{ fontVariationSettings: "'FILL' 1" }}>
                   {action.icon}
