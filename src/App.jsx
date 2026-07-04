@@ -6,6 +6,9 @@ import AiAnalysis from "./screens/AiAnalysis";
 import AiResult from "./screens/AiResult";
 import AiRecommendation from "./screens/AiRecommendation";
 import IdeasReutilizacion from "./screens/IdeasReutilizacion";
+import Marketplace from "./screens/Marketplace";
+
+
 
 export default function App() {
   return (
@@ -18,6 +21,8 @@ export default function App() {
           <Route path="/scan/resultado" element={<AiResult />} />
           <Route path="/scan/decision" element={<AiRecommendation />} />
           <Route path="/ideas" element={<IdeasReutilizacion />} />
+          <Route path="/market" element={<Marketplace />} />
+          
           
         </Routes>
       </PhoneFrame>
