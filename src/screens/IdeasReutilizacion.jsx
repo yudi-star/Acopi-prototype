@@ -136,17 +136,27 @@ export default function IdeasReutilizacion() {
 
       <main className="w-full px-4 pt-4 flex flex-col gap-4">
         <div>
+        <div className="flex items-center gap-2">
+          <div className="w-9 h-9 rounded-full bg-[#C0F200] flex items-center justify-center flex-shrink-0">
+            <span
+              className="material-symbols-outlined text-[18px] text-[#3A4D00]"
+              style={{ fontVariationSettings: "'FILL' 1" }}
+            >
+              tips_and_updates
+            </span>
+          </div>
           <h1 className="text-xl font-extrabold text-gray-900 tracking-tight">
-            💡 Ideas para ti
+            Ideas para ti
           </h1>
-          <p className="text-[11px] text-gray-500 mt-1">
-            Basado en lo que detectamos:{" "}
-            {materialesDetectados
-              .map((m) => nombresAmigables[m] || m)
-              .join(" y ")}
-            .
-          </p>
         </div>
+        <p className="text-[11px] text-gray-500 mt-1">
+          Basado en lo que detectamos:{" "}
+          {materialesDetectados
+            .map((m) => nombresAmigables[m] || m)
+            .join(" y ")}
+          .
+        </p>
+      </div>
 
         {ideasFiltradas.length === 0 && (
           <p className="text-sm text-gray-400 text-center py-8">
