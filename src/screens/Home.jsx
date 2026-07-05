@@ -2,10 +2,10 @@ import { useNavigate } from "react-router-dom";
 import TopAppBar from "../components/layout/TopAppBar";
 
 const quickActions = [
-  { label: "Chat IA", icon: "smart_toy", color: "text-[#0088CC]", bg: "bg-[#E5F6FF]" },
-  { label: "Marketplace", icon: "storefront", color: "text-[#D4A017]", bg: "bg-[#FFF8E7]" },
+  { label: "Chat IA", icon: "smart_toy", color: "text-[#0088CC]", bg: "bg-[#E5F6FF]", to: "/chat" },
+  { label: "Marketplace", icon: "storefront", color: "text-[#D4A017]", bg: "bg-[#FFF8E7]", to: "/market" },
   { label: "Mi Mascota", icon: "pets", color: "text-[#6B8E23]", bg: "bg-[#F0F8E2]" },
-  { label: "Recojo", icon: "local_shipping", color: "text-[#696969]", bg: "bg-[#F5F5F5]" },
+  { label: "Recojo", icon: "local_shipping", color: "text-[#696969]", bg: "bg-[#F5F5F5]", to: "/recojo/estado" },
 ];
 
 export default function Home() {
@@ -34,7 +34,10 @@ export default function Home() {
       <main className="w-full px-4 pt-4 flex flex-col gap-4">
 
         {/* TARJETA SALDO */}
-        <section className="bg-white rounded-[1.25rem] p-4 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col relative overflow-hidden">
+        <section
+          onClick={() => navigate("/perfil/billetera")}
+          className="bg-white rounded-[1.25rem] p-4 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col relative overflow-hidden cursor-pointer active:scale-[0.99] transition-transform"
+        >
           <div className="absolute top-0 right-0 w-28 h-28 bg-lime-50 rounded-full blur-3xl opacity-60 -mr-8 -mt-8 pointer-events-none"></div>
 
           <h2 className="text-[9px] font-bold text-gray-500 uppercase tracking-widest mb-1 z-10">
@@ -106,6 +109,7 @@ export default function Home() {
           {quickActions.map((action, index) => (
             <button
               key={index}
+              onClick={() => action.to && navigate(action.to)}
               className="bg-white rounded-[1.25rem] p-3 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col items-center justify-center gap-2 active:scale-95 transition-all duration-200"
             >
               <div className={`w-10 h-10 rounded-full ${action.bg} ${action.color} flex items-center justify-center`}>

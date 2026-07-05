@@ -8,6 +8,10 @@ import AiRecommendation from "./screens/AiRecommendation";
 import IdeasReutilizacion from "./screens/IdeasReutilizacion";
 import Marketplace from "./screens/Marketplace";
 import EcoBilletera from "./screens/EcoBilletera";
+import MiPerfil from "./screens/MiPerfil";
+import ChatIA from "./screens/ChatIA";
+import SolicitarRecojo from "./screens/SolicitarRecojo";
+import EstadoRecojo from "./screens/EstadoRecojo";
 
 
 
@@ -16,6 +20,7 @@ export default function App() {
     <BrowserRouter>
       <PhoneFrame>
         <Routes>
+          <Route path="/chat" element={<ChatIA />} />
           <Route path="/" element={<Home />} />
           <Route path="/scan" element={<CameraScan />} />
           <Route path="/scan/analizando" element={<AiAnalysis />} />
@@ -24,6 +29,9 @@ export default function App() {
           <Route path="/ideas" element={<IdeasReutilizacion />} />
           <Route path="/market" element={<Marketplace />} />
           <Route path="/perfil/billetera" element={<EcoBilletera />} />
+          <Route path="/perfil" element={<MiPerfil />} />
+          <Route path="/recojo" element={<SolicitarRecojo />} />
+          <Route path="/recojo/estado" element={<EstadoRecojo />} />
         </Routes>
       </PhoneFrame>
     </BrowserRouter>
