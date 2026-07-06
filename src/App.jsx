@@ -13,6 +13,11 @@ import ChatIA from "./screens/ChatIA";
 import SolicitarRecojo from "./screens/SolicitarRecojo";
 import EstadoRecojo from "./screens/EstadoRecojo";
 import HistorialCompleto from "./screens/HistorialCompleto";
+import Splash from "./screens/Splash";
+import OnboardingIdentify from "./screens/OnboardingIdentify";
+import OnboardingScan from "./screens/OnboardingScan";
+import OnboardingEarn from "./screens/OnboardingEarn";
+import Login from "./screens/Login";
 
 
 
@@ -35,6 +40,12 @@ export default function App() {
           <Route path="/recojo" element={<SolicitarRecojo />} />
           <Route path="/recojo/estado" element={<EstadoRecojo />} />
           <Route path="/perfil/historial" element={<HistorialCompleto />} />  
+          <Route path="/splash" element={<Splash />} />
+          <Route path="/onboarding/1" element={<OnboardingIdentify />} />
+          <Route path="/onboarding/2" element={<OnboardingScan />} />
+          <Route path="/onboarding/3" element={<OnboardingEarn />} />
+          <Route path="/login" element={<Login />} />
+
         </Routes>
       </PhoneFrame>
     </BrowserRouter>

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import logoAcopi from "../../assets/images/logo acopi.png";
+import logoAcopi from "../../assets/images/logo-acopi.png";
 
 export default function TopAppBar({ points = "1,250", back = false }) {
   const navigate = useNavigate();
