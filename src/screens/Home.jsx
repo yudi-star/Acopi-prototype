@@ -61,33 +61,36 @@ export default function Home() {
         </section>
 
         {/* TARJETA PANDA */}
-        <section onClick={() => navigate("/mascota")} className="bg-white rounded-[1.25rem] p-3.5 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex items-center gap-3">
-
-          <div className="w-[60px] h-[60px] rounded-full bg-gray-100 flex-shrink-0 flex items-center justify-center text-3xl border border-gray-100 shadow-sm overflow-hidden">
-            🐼
-          </div>
-
-          <div className="flex flex-col gap-1">
-            <div>
-              <h3 className="text-base font-bold text-gray-900 leading-tight">
-                Eco-Panda
-              </h3>
-              <p className="text-[10px] text-gray-500 font-medium">
-                Tu compañero verde
-              </p>
+        <section
+          onClick={() => navigate("/mascota")}
+          className="bg-white rounded-[1.25rem] p-3.5 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col gap-3 cursor-pointer hover:bg-gray-50 transition-all duration-200"
+        >
+          <div className="flex items-center gap-3">
+            <div className="w-[60px] h-[60px] rounded-full bg-gray-100 flex-shrink-0 flex items-center justify-center text-3xl border border-gray-100 shadow-sm overflow-hidden">
+              🐼
             </div>
-            <div className="flex flex-wrap gap-1.5 mt-1">
-              <span className="bg-[#C0F200] text-gray-900 px-2.5 py-0.5 rounded-full text-[9px] font-bold">
-                Nivel 12
-              </span>
-              <span className="bg-[#E0F2FE] text-[#0288D1] px-2.5 py-0.5 rounded-full text-[9px] font-bold flex items-center gap-1">
-                <span className="material-symbols-outlined text-[11px]" style={{ fontVariationSettings: "'FILL' 1" }}>
-                  sentiment_satisfied
+
+            <div className="flex flex-col gap-1 flex-grow">
+              <div>
+                <h3 className="text-base font-bold text-gray-900 leading-tight">Eco-Panda</h3>
+                <p className="text-[10px] text-gray-500 font-medium">Tu compañero verde</p>
+              </div>
+              <div className="flex flex-wrap gap-1.5 mt-1">
+                <span className="bg-[#C0F200] text-gray-900 px-2.5 py-0.5 rounded-full text-[9px] font-bold">Nivel 12</span>
+                <span className="bg-[#E0F2FE] text-[#0288D1] px-2.5 py-0.5 rounded-full text-[9px] font-bold flex items-center gap-1">
+                  <span className="material-symbols-outlined text-[11px]" style={{ fontVariationSettings: "'FILL' 1" }}>sentiment_satisfied</span>
+                  Feliz
                 </span>
-                Feliz
-              </span>
+              </div>
             </div>
           </div>
+
+          {/* BOTÓN VER MASCOTA */}
+          <button
+            className="w-full py-2 bg-gray-900 text-white text-[11px] font-bold rounded-xl active:scale-95 transition-transform"
+          >
+            Ver Mascota
+          </button>
         </section>
 
         {/* BOTÓN FOTO */}
