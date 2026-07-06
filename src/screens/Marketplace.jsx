@@ -8,7 +8,7 @@ const publicacionesIniciales = [
   {
     id: 1,
     titulo: "Lote de Botellas Ámbar",
-    imagen: "https://images.unsplash.com/photo-1595981234058-a9302fb97229?w=600&q=80",
+    imagen: "https://http2.mlstatic.com/D_NQ_NP_801320-MLU73857472620_012024-O.webp",
     distrito: "Miraflores",
     distancia: "2.5km",
     material: "Vidrio",
@@ -21,7 +21,7 @@ const publicacionesIniciales = [
   {
     id: 2,
     titulo: "Cartón corrugado limpio",
-    imagen: "https://images.unsplash.com/photo-1607166452427-7e4477079cb9?w=600&q=80",
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSynYXY9HWwuZCTWatXt7qNQfld8Hbu2OWRDeiyLVlbgLqpfydANBjt2zQY&s=10",
     distrito: "San Isidro",
     distancia: "4km",
     material: "Cartón",
@@ -34,7 +34,7 @@ const publicacionesIniciales = [
   {
     id: 3,
     titulo: "Botellas PET 500ml",
-    imagen: "https://images.unsplash.com/photo-1571727153934-b9e0059b7d4d?w=600&q=80",
+    imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3z5X_qVTe7dSFaH6692O2n56XDzbfakW4F2EkmvbfbhDP-UGSJz6mRSuw&s=10",
     distrito: "Surco",
     distancia: "1.2km",
     material: "Plástico",
@@ -47,7 +47,7 @@ const publicacionesIniciales = [
   {
     id: 4,
     titulo: "Latas de aluminio (bolsa)",
-    imagen: "https://images.unsplash.com/photo-1611270629569-8b357cb88da9?w=600&q=80",
+    imagen: "https://thumbs.dreamstime.com/b/latas-de-aluminio-en-bolsas-pl%C3%A1stico-rojas-la-planta-reciclaje-comunitaria-comunidad-reciclar-gota-184512601.jpg",
     distrito: "Barranco",
     distancia: "3km",
     material: "Metal",
@@ -58,17 +58,17 @@ const publicacionesIniciales = [
     estado: "disponible",
   },
   {
-    id: 5,
-    titulo: "Ropa usada en buen estado",
-    imagen: "https://images.unsplash.com/photo-1489274495757-95c7c837b101?w=600&q=80",
-    distrito: "Miraflores",
-    distancia: "0.8km",
-    material: "Textil",
-    materialColor: "#DB2777",
-    materialBg: "#FCE7F3",
-    usuario: "@karlar",
-    avatar: "https://randomuser.me/api/portraits/women/68.jpg",
-    estado: "disponible",
+  id: 5,
+  titulo: "Hojas bond usadas (reverso libre)",
+  imagen: "https://impresionesenlinea.wordpress.com/wp-content/uploads/2013/02/impresionescolor.jpg", 
+  distrito: "Miraflores",
+  distancia: "0.8km",
+  material: "Papel",
+  materialColor: "#C08A17",
+  materialBg: "#FFF3E0",
+  usuario: "@karlar",
+  avatar: "https://randomuser.me/api/portraits/women/68.jpg",
+  estado: "disponible",
   },
 ];
 
@@ -77,7 +77,8 @@ const materialColores = {
   "Vidrio": { color: "#38BDF8", bg: "#E5F6FF" },
   "Plástico": { color: "#6B8E23", bg: "#F0F8E2" },
   "Metal": { color: "#9333EA", bg: "#F3E8FF" },
-  "Textil": { color: "#DB2777", bg: "#FCE7F3" },
+  "Papel": { color: "#C08A17", bg: "#FFF3E0" },
+
 };
 
 export default function Marketplace() {

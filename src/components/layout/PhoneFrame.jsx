@@ -1,9 +1,14 @@
 import { useRef } from "react";
+import { useLocation } from "react-router-dom";
 import BottomNav from "./BottomNav";
 import ScrollToTop from "./ScrollToTop";
 
+const rutasSinNav = ["/splash", "/onboarding/1", "/onboarding/2", "/onboarding/3", "/login"];
+
 export default function PhoneFrame({ children }) {
   const scrollRef = useRef(null);
+  const location = useLocation();
+  const mostrarNav = !rutasSinNav.includes(location.pathname);
 
   return (
     <div className="h-screen w-full flex items-center justify-center bg-gray-200 py-4 overflow-hidden">
@@ -15,12 +20,12 @@ export default function PhoneFrame({ children }) {
         <div
           ref={scrollRef}
           id="phone-scroll-area"
-          className="flex-1 overflow-y-auto overflow-x-hidden relative pb-24"
+          className={`flex-1 overflow-y-auto overflow-x-hidden relative ${mostrarNav ? "pb-24" : ""}`}
         >
           {children}
         </div>
 
-        <BottomNav />
+        {mostrarNav && <BottomNav />}
       </div>
     </div>
   );

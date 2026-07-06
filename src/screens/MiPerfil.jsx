@@ -156,48 +156,48 @@ export default function MiPerfil() {
 
         {/* TOTAL RECICLADO */}
         <section
-          onClick={() => navigate("/perfil/impacto")}
-          className="bg-white rounded-[1.25rem] p-4 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex items-center gap-3 active:scale-[0.99] transition-transform cursor-pointer"
+        onClick={() => navigate("/perfil/impacto")}
+        className="bg-white rounded-[1.25rem] p-4 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex items-center gap-3 active:scale-[0.99] transition-transform cursor-pointer"
         >
-          <div className="w-12 h-12 rounded-full bg-[#E0F2FE] flex items-center justify-center flex-shrink-0">
+        <div className="w-10 h-10 rounded-full bg-[#E0F2FE] flex items-center justify-center flex-shrink-0">
             <span
-              className="material-symbols-outlined text-[22px] text-[#0288D1]"
-              style={{ fontVariationSettings: "'FILL' 1" }}
+            className="material-symbols-outlined text-[18px] text-[#0288D1]"
+            style={{ fontVariationSettings: "'FILL' 1" }}
             >
-              recycling
+            recycling
             </span>
-          </div>
-          <div className="flex-1">
+        </div>
+        <div className="flex-1">
             <p className="text-[9px] font-bold text-gray-500 uppercase tracking-widest">
-              Total Reciclado
+            Total Reciclado
             </p>
-            <p className="text-2xl font-extrabold text-gray-900 leading-tight mt-0.5">
-              45.2 kg
+            <p className="text-lg font-extrabold text-gray-900 leading-tight mt-0.5">
+            45.2 kg
             </p>
-          </div>
+        </div>
         </section>
 
         {/* PLÁSTICO AHORRADO */}
         <section
-          onClick={() => navigate("/perfil/impacto")}
-          className="bg-white rounded-[1.25rem] p-4 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex items-center gap-3 active:scale-[0.99] transition-transform cursor-pointer"
+        onClick={() => navigate("/perfil/impacto")}
+        className="bg-white rounded-[1.25rem] p-4 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex items-center gap-3 active:scale-[0.99] transition-transform cursor-pointer"
         >
-          <div className="w-12 h-12 rounded-full bg-[#FEF3C7] flex items-center justify-center flex-shrink-0">
+        <div className="w-10 h-10 rounded-full bg-[#FEF3C7] flex items-center justify-center flex-shrink-0">
             <span
-              className="material-symbols-outlined text-[22px] text-[#D4A017]"
-              style={{ fontVariationSettings: "'FILL' 1" }}
+            className="material-symbols-outlined text-[18px] text-[#D4A017]"
+            style={{ fontVariationSettings: "'FILL' 1" }}
             >
-              local_drink
+            local_drink
             </span>
-          </div>
-          <div className="flex-1">
+        </div>
+        <div className="flex-1">
             <p className="text-[9px] font-bold text-gray-500 uppercase tracking-widest">
-              Plástico Ahorrado
+            Plástico Ahorrado
             </p>
-            <p className="text-2xl font-extrabold text-gray-900 leading-tight mt-0.5">
-              320 botellas
+            <p className="text-lg font-extrabold text-gray-900 leading-tight mt-0.5">
+            320 botellas
             </p>
-          </div>
+        </div>
         </section>
 
         {/* ACTIVIDAD RECIENTE */}
