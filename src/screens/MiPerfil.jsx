@@ -23,23 +23,43 @@ function Toggle({ on, onChange }) {
 const actividadReciente = [
   {
     id: 1,
-    titulo: "Bolsas Reutilizables",
-    detalle: "Escaneado en Supermercado Local",
-    puntos: "+50",
-    fecha: "Hace 2 días",
-    icon: "shopping_bag",
+    titulo: "8 Botellas PET escaneadas",
+    detalle: "Detectado por IA · Eco-Scan",
+    puntos: "+45",
+    fecha: "Hace 2 horas",
+    icon: "water_bottle",
+    iconBg: "#E5F6FF",
+    iconColor: "#38BDF8",
+  },
+  {
+    id: 2,
+    titulo: "Publicaste: Cartón corrugado",
+    detalle: "Marketplace · San Isidro",
+    puntos: "+20",
+    fecha: "Ayer",
+    icon: "storefront",
+    iconBg: "#FFF8E7",
+    iconColor: "#D4A017",
+  },
+  {
+    id: 3,
+    titulo: "Iniciaste: Macetero Colgante",
+    detalle: "Idea de reutilización · Botella PET",
+    puntos: "+15",
+    fecha: "Hace 3 días",
+    icon: "yard",
     iconBg: "#F0F8E2",
     iconColor: "#6B8E23",
   },
   {
-    id: 2,
-    titulo: "Pilas y Baterías",
-    detalle: "Punto Limpio Norte",
-    puntos: "+120",
+    id: 4,
+    titulo: "Retiro a EcoBilletera",
+    detalle: "Transferencia a Yape",
+    puntos: "-15.00",
     fecha: "Hace 1 semana",
-    icon: "bolt",
-    iconBg: "#FEF3C7",
-    iconColor: "#D4A017",
+    icon: "account_balance_wallet",
+    iconBg: "#F3E8FF",
+    iconColor: "#9333EA",
   },
 ];
 
@@ -67,8 +87,12 @@ export default function MiPerfil() {
 
           {/* Avatar */}
           <div className="relative z-10 mb-1">
-            <div className="w-24 h-24 rounded-full bg-[#E8F5D8] border-4 border-white shadow-md flex items-center justify-center overflow-hidden text-5xl">
-              👩‍🌾
+            <div className="w-24 h-24 rounded-full border-4 border-white shadow-md overflow-hidden">
+              <img
+                src="https://randomuser.me/api/portraits/women/33.jpg"
+                alt="Yudith"
+                className="w-full h-full object-cover"
+              />
             </div>
             <button className="absolute bottom-0 right-0 w-7 h-7 rounded-full bg-white border border-gray-200 flex items-center justify-center shadow-sm active:scale-90 transition-transform">
               <span className="material-symbols-outlined text-[14px] text-gray-600">
@@ -79,9 +103,9 @@ export default function MiPerfil() {
 
           <div className="text-center relative z-10">
             <h1 className="text-lg font-extrabold text-gray-900 tracking-tight leading-tight">
-              María Rodríguez
+              Yudith Pacco
             </h1>
-            <p className="text-[11px] text-gray-500 mt-0.5">maria.rod@eco.com</p>
+            <p className="text-[11px] text-gray-500 mt-0.5">@yudith</p>
           </div>
 
           {/* Badge pill */}
@@ -182,8 +206,11 @@ export default function MiPerfil() {
             <h3 className="text-[13px] font-extrabold text-gray-900 tracking-tight">
               Actividad Reciente
             </h3>
-            <button className="text-[10px] font-bold text-[#536600] active:opacity-70">
-              Ver todo
+            <button
+            onClick={() => navigate("/perfil/historial")}
+            className="text-[10px] font-bold text-[#536600] active:opacity-70"
+            >
+            Ver todo
             </button>
           </div>
 
@@ -216,13 +243,17 @@ export default function MiPerfil() {
                 </p>
               </div>
               <div className="text-right flex-shrink-0">
-                <p className="text-[12px] font-extrabold text-[#536600] leading-tight">
-                  {act.puntos} PTS
+                <p
+                    className={`text-[12px] font-extrabold leading-tight ${
+                    act.puntos.startsWith("-") ? "text-gray-500" : "text-[#536600]"
+                    }`}
+                >
+                    {act.puntos} {act.titulo.includes("Retiro") ? "" : "PTS"}
                 </p>
                 <p className="text-[10px] text-gray-400 mt-0.5 leading-tight">
-                  {act.fecha}
+                    {act.fecha}
                 </p>
-              </div>
+                </div>
             </div>
           ))}
         </section>

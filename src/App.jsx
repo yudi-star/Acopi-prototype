@@ -12,6 +12,8 @@ import MiPerfil from "./screens/MiPerfil";
 import ChatIA from "./screens/ChatIA";
 import SolicitarRecojo from "./screens/SolicitarRecojo";
 import EstadoRecojo from "./screens/EstadoRecojo";
+import HistorialCompleto from "./screens/HistorialCompleto";
+
 
 
 
@@ -32,6 +34,7 @@ export default function App() {
           <Route path="/perfil" element={<MiPerfil />} />
           <Route path="/recojo" element={<SolicitarRecojo />} />
           <Route path="/recojo/estado" element={<EstadoRecojo />} />
+          <Route path="/perfil/historial" element={<HistorialCompleto />} />  
         </Routes>
       </PhoneFrame>
     </BrowserRouter>
