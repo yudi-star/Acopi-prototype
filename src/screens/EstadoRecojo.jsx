@@ -5,25 +5,24 @@ const pasos = [
   {
     id: 1,
     titulo: "Solicitud enviada",
-    descripcion: "Tu solicitud ha sido registrada exitosamente.",
-    timestamp: "10:00 AM - Hoy",
+    descripcion: "18 Botellas PET y 5 Cajas de Cartón registradas.",
+    timestamp: "Hoy, 10:00 AM",
     icon: "send",
     estado: "completado",
   },
   {
     id: 2,
     titulo: "Verificada por IA",
-    descripcion:
-      "Nuestra IA ha validado los materiales reciclables en tu solicitud.",
-    timestamp: "10:05 AM - Hoy",
+    descripcion: "La IA validó el peso estimado: 6.2 kg en total.",
+    timestamp: "Hoy, 10:05 AM",
     icon: "auto_awesome",
     estado: "completado",
   },
   {
     id: 3,
     titulo: "Ruta programada",
-    descripcion: "Un recolector ha sido asignado y se dirige a tu zona.",
-    timestamp: null,
+    descripcion: "Un recolector fue asignado a tu zona (San Isidro).",
+    timestamp: "Mar 14/7, 7:00 PM",
     icon: "alt_route",
     estado: "activo",
     recolector: { nombre: "Carlos M.", rating: "4.9", recojos: "120" },
@@ -31,23 +30,23 @@ const pasos = [
   {
     id: 4,
     titulo: "En camino",
-    descripcion: "El recolector está cerca de tu ubicación.",
-    timestamp: null,
+    descripcion: "Te avisaremos cuando el recolector esté cerca.",
+    timestamp: "Llegada estimada: 8:15 PM",
     icon: "local_shipping",
     estado: "pendiente",
   },
   {
     id: 5,
     titulo: "Recolectado",
-    descripcion: "Los materiales han sido entregados al recolector.",
+    descripcion: "Se confirmará el peso real al momento de la entrega.",
     timestamp: null,
     icon: "inventory_2",
     estado: "pendiente",
   },
   {
     id: 6,
-    titulo: "Pago realizado",
-    descripcion: "Tus puntos ACOPI han sido acreditados a tu cuenta.",
+    titulo: "Pago acreditado",
+    descripcion: "El monto se sumará a tu EcoBilletera automáticamente.",
     timestamp: null,
     icon: "payments",
     estado: "pendiente",
@@ -69,13 +68,16 @@ function StepIcon({ estado, icon }) {
   }
   if (estado === "activo") {
     return (
-      <div className="w-10 h-10 rounded-full bg-[#C0F200] flex items-center justify-center flex-shrink-0 shadow-[0_0_0_4px_rgba(192,242,0,0.25)]">
-        <span
-          className="material-symbols-outlined text-gray-900 text-[18px]"
-          style={{ fontVariationSettings: "'FILL' 1" }}
-        >
-          {icon}
-        </span>
+      <div className="relative flex-shrink-0">
+        <div className="absolute inset-0 rounded-full bg-[#C0F200]/40 animate-ping"></div>
+        <div className="relative w-10 h-10 rounded-full bg-[#C0F200] flex items-center justify-center shadow-[0_0_0_4px_rgba(192,242,0,0.25)]">
+          <span
+            className="material-symbols-outlined text-gray-900 text-[18px]"
+            style={{ fontVariationSettings: "'FILL' 1" }}
+          >
+            {icon}
+          </span>
+        </div>
       </div>
     );
   }
@@ -96,18 +98,37 @@ export default function EstadoRecojo() {
 
   return (
     <div className="min-h-full pb-32 bg-gray-50/50">
-      {/* HEADER */}
-      <TopAppBar points="1,250" />
+      <TopAppBar back points="1,250" />
 
       <main className="w-full px-4 pt-5 flex flex-col gap-4">
-        {/* TÍTULO */}
         <section>
           <h1 className="text-[22px] font-extrabold text-gray-900 tracking-tight leading-tight">
             Seguimiento de Recojo
           </h1>
           <p className="text-[12px] text-gray-500 mt-1 leading-snug">
-            Revisa el estado de tu recolección ecológica en tiempo real.
+            Revisa el estado de tu recolección en tiempo real.
           </p>
+        </section>
+
+        {/* Banner de estado activo */}
+        <section className="bg-gray-900 text-white rounded-[1.25rem] p-4 flex items-center gap-3 relative overflow-hidden">
+          <div className="absolute -right-6 -top-6 w-28 h-28 bg-[#C0F200]/10 rounded-full blur-2xl"></div>
+          <div className="relative flex-shrink-0">
+            <div className="absolute inset-0 rounded-full bg-[#C0F200]/40 animate-ping"></div>
+            <div className="relative w-11 h-11 rounded-full bg-[#C0F200] flex items-center justify-center">
+              <span className="material-symbols-outlined text-gray-900 text-[20px]">
+                alt_route
+              </span>
+            </div>
+          </div>
+          <div className="relative z-10">
+            <p className="text-[9px] font-bold text-[#C0F200] uppercase tracking-widest">
+              En progreso ahora
+            </p>
+            <p className="text-[12px] font-bold mt-0.5">
+              Carlos se dirige a tu zona
+            </p>
+          </div>
         </section>
 
         {/* TIMELINE */}
@@ -174,6 +195,11 @@ export default function EstadoRecojo() {
                             </span>
                           </div>
                         </div>
+                        <button className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center flex-shrink-0 active:scale-90 transition-transform">
+                          <span className="material-symbols-outlined text-[16px] text-gray-600">
+                            chat
+                          </span>
+                        </button>
                       </div>
                     )}
                   </div>
@@ -183,14 +209,11 @@ export default function EstadoRecojo() {
           </div>
         </section>
 
-        {/* CONTACTAR SOPORTE */}
         <button
           onClick={() => alert("Conectando con soporte…")}
           className="w-full h-12 border-2 border-gray-300 text-gray-700 rounded-full font-bold text-[12px] flex items-center justify-center gap-2 active:scale-[0.98] transition-transform bg-white mt-1"
         >
-          <span className="material-symbols-outlined text-[16px]">
-            support_agent
-          </span>
+          <span className="material-symbols-outlined text-[16px]">support_agent</span>
           Contactar Soporte
         </button>
       </main>

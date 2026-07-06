@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const diasSemana = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
 
@@ -13,7 +14,6 @@ function getProximasSemanas() {
     const inicioSemana = new Date(hoy);
     inicioSemana.setDate(hoy.getDate() + s * 7);
 
-    // Encuentra la fecha del día objetivo dentro de esa semana
     const diaObjetivo = diaObjetivoPorSemana[s];
     const diferenciaDias = (diaObjetivo - inicioSemana.getDay() + 7) % 7;
     const fecha = new Date(inicioSemana);
@@ -34,6 +34,7 @@ function getProximasSemanas() {
 }
 
 export default function RecojoModal({ isOpen, onClose, onConfirmar }) {
+  const navigate = useNavigate();
   const [seleccionado, setSeleccionado] = useState(null);
   const semanas = getProximasSemanas();
 
@@ -65,7 +66,28 @@ export default function RecojoModal({ isOpen, onClose, onConfirmar }) {
           </button>
         </div>
 
-        <div className="px-4 py-3 flex flex-col gap-3">
+        <div className="px-4 py-3 flex flex-col gap-4">
+          {/* Dirección guardada (de solo lectura, viene del perfil) */}
+          <div className="bg-gray-50 rounded-xl p-3 flex items-center gap-2.5 border border-gray-100">
+            <span className="material-symbols-outlined text-[18px] text-gray-500 flex-shrink-0">
+              location_on
+            </span>
+            <div className="flex-1 min-w-0">
+              <p className="text-[9px] font-bold text-gray-400 uppercase tracking-wider">
+                Recojo en
+              </p>
+              <p className="text-[11px] font-semibold text-gray-800 truncate">
+                Av. José Larco 1234, Dpto 502 · San Isidro
+              </p>
+            </div>
+            <button
+              onClick={() => navigate("/recojo")}
+              className="text-[10px] font-bold text-[#0288D1] flex-shrink-0"
+            >
+              Cambiar
+            </button>
+          </div>
+
           {semanas.map((semana) => (
             <div key={semana.label} className="flex flex-col gap-1.5">
               <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">

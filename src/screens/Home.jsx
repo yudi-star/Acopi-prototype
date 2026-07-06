@@ -34,10 +34,7 @@ export default function Home() {
       <main className="w-full px-4 pt-4 flex flex-col gap-4">
 
         {/* TARJETA SALDO */}
-        <section
-          onClick={() => navigate("/perfil/billetera")}
-          className="bg-white rounded-[1.25rem] p-4 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col relative overflow-hidden cursor-pointer active:scale-[0.99] transition-transform"
-        >
+        <section className="bg-white rounded-[1.25rem] p-4 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col relative overflow-hidden">
           <div className="absolute top-0 right-0 w-28 h-28 bg-lime-50 rounded-full blur-3xl opacity-60 -mr-8 -mt-8 pointer-events-none"></div>
 
           <h2 className="text-[9px] font-bold text-gray-500 uppercase tracking-widest mb-1 z-10">
@@ -60,6 +57,24 @@ export default function Home() {
             <div className="w-full h-2.5 bg-gray-100 rounded-full overflow-hidden p-[1px] shadow-inner">
               <div className="water-bar rounded-full h-full shadow-[inset_0_-1px_3px_rgba(0,0,0,0.1)]"></div>
             </div>
+          </div>
+
+          {/* Botones de acción */}
+          <div className="flex gap-2 mt-4 z-10">
+            <button
+              onClick={() => navigate("/billetera/retirar")}
+              className="flex-1 h-10 bg-[#C0F200] text-gray-900 rounded-xl font-bold text-[11px] flex items-center justify-center gap-1.5 active:scale-95 transition-transform"
+            >
+              <span className="material-symbols-outlined text-[15px]">payments</span>
+              Retirar
+            </button>
+            <button
+              onClick={() => navigate("/billetera")}
+              className="flex-1 h-10 bg-gray-50 border border-gray-200 text-gray-700 rounded-xl font-bold text-[11px] flex items-center justify-center gap-1.5 active:scale-95 transition-transform"
+            >
+              <span className="material-symbols-outlined text-[15px]">receipt_long</span>
+              Ver detalles
+            </button>
           </div>
         </section>
 
@@ -88,10 +103,8 @@ export default function Home() {
             </div>
           </div>
 
-          {/* BOTÓN VER MASCOTA */}
-          <button
-            className="w-full py-2 bg-gray-900 text-white text-[11px] font-bold rounded-xl active:scale-95 transition-transform"
-          >
+          <button className="w-full h-10 bg-gray-50 border border-gray-200 text-gray-700 rounded-xl font-bold text-[11px] flex items-center justify-center gap-1.5 active:scale-95 transition-transform">
+            <span className="material-symbols-outlined text-[15px]">pets</span>
             Ver Mascota
           </button>
         </section>

@@ -6,7 +6,7 @@ const historialAgrupado = [
     items: [
       {
         id: 1,
-        titulo: "8 Botellas PET escaneadas",
+        titulo: "16 Botellas PET escaneadas",
         detalle: "Detectado por IA · Eco-Scan",
         puntos: "+45",
         hora: "10:42 AM",

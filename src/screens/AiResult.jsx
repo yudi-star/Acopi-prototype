@@ -5,7 +5,7 @@ const scanBg =
   "https://thumbs.dreamstime.com/b/caja-de-cart%C3%B3n-con-botellas-pl%C3%A1stico-usadas-en-la-mesa-cocina-problema-reciclaje-213086271.jpg";
 
 const initialItems = [
-  { id: 1, label: "Botellas PET", cantidad: 8, confianza: 96, icon: "water_bottle", color: "#38BDF8" },
+  { id: 1, label: "Botellas PET", cantidad: 15, confianza: 96, icon: "water_bottle", color: "#38BDF8" },
   { id: 2, label: "Caja de Cartón", cantidad: 1, confianza: 94, icon: "inventory_2", color: "#C0F200" },
 ];
 

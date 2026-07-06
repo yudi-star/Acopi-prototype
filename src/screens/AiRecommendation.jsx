@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const options = [
@@ -32,32 +33,37 @@ const options = [
 
 export default function AiRecommendation() {
   const navigate = useNavigate();
+  const [mostrarConfirmacion, setMostrarConfirmacion] = useState(false);
 
   const handleSelect = (id) => {
-    if (id === "acumular") navigate("/scan/resultado");
-    if (id === "reutilizar") navigate("/ideas");
+    if (id === "acumular") {
+      setMostrarConfirmacion(true);
+      return;
+    }
+    if (id === "reutilizar")
+      navigate("/ideas", { state: { materiales: ["PET", "Cartón"] } });
     if (id === "compartir") navigate("/market");
   };
 
   return (
-    <div className="min-h-full pb-32 bg-gray-50/50">
+    <div className="min-h-full pb-32 bg-gray-50/50 relative">
       <div className="flex justify-between items-center px-4 pt-9 pb-3 sticky top-0 bg-white/90 backdrop-blur-xl z-20 border-b border-gray-100">
         <button
-            onClick={() => navigate(-1)}
-            className="w-9 h-9 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-500 active:scale-90 transition-transform"
+          onClick={() => navigate(-1)}
+          className="w-9 h-9 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-500 active:scale-90 transition-transform"
         >
-            <span className="material-symbols-outlined text-[18px]">arrow_back</span>
+          <span className="material-symbols-outlined text-[18px]">arrow_back</span>
         </button>
         <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
-            Decisión
+          Decisión
         </span>
         <button
-            onClick={() => navigate("/")}
-            className="w-9 h-9 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-500 active:scale-90 transition-transform"
+          onClick={() => navigate("/")}
+          className="w-9 h-9 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-500 active:scale-90 transition-transform"
         >
-            <span className="material-symbols-outlined text-[18px]">close</span>
+          <span className="material-symbols-outlined text-[18px]">close</span>
         </button>
-        </div>
+      </div>
 
       <main className="w-full px-4 pt-4 flex flex-col gap-4">
         <div>
@@ -112,6 +118,46 @@ export default function AiRecommendation() {
           ))}
         </section>
       </main>
+
+      {/* Modal de confirmación al elegir "Acumular" */}
+      {mostrarConfirmacion && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/40 px-6">
+          <div className="bg-white rounded-[1.5rem] p-6 w-full max-w-[320px] flex flex-col items-center text-center gap-3">
+            <div className="w-16 h-16 rounded-full bg-[#E8F5D8] flex items-center justify-center">
+              <span
+                className="material-symbols-outlined text-[28px] text-[#536600]"
+                style={{ fontVariationSettings: "'FILL' 1" }}
+              >
+                savings
+              </span>
+            </div>
+
+            <h2 className="text-base font-extrabold text-gray-900">
+              ¡Guardado para acumular!
+            </h2>
+            <p className="text-[12px] text-gray-500 leading-relaxed">
+              La IA sumó estos materiales a tu inventario. Sigue escaneando y
+              cuando tengas suficiente, solicita el recojo desde el chat o tu
+              perfil para ganar dinero.
+            </p>
+
+            <div className="flex flex-col gap-2 w-full mt-2">
+              <button
+                onClick={() => navigate("/recojo")}
+                className="w-full h-11 bg-[#C0F200] text-gray-900 rounded-full font-bold text-[12px] active:scale-95 transition-transform"
+              >
+                Ver mi progreso
+              </button>
+              <button
+                onClick={() => navigate("/")}
+                className="w-full h-11 bg-gray-50 border border-gray-200 text-gray-700 rounded-full font-bold text-[12px] active:scale-95 transition-transform"
+              >
+                Volver a Inicio
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

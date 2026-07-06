@@ -20,38 +20,58 @@ import OnboardingIdentify from "./screens/OnboardingIdentify";
 import OnboardingScan from "./screens/OnboardingScan";
 import OnboardingEarn from "./screens/OnboardingEarn";
 import Login from "./screens/Login";
+import RetirarDinero from "./screens/RetirarDinero";
 
-
-
+import AdminLayout from "./admin/AdminLayout";
+import AdminDashboard from "./admin/AdminDashboard";
+import AdminSolicitudes from "./admin/AdminSolicitudes";
+import AdminRutas from "./admin/AdminRutas";
+import AdminEstadisticas from "./admin/AdminEstadisticas";
 
 export default function App() {
   return (
     <BrowserRouter>
-      <PhoneFrame>
-        <Routes>
-          <Route path="/chat" element={<ChatIA />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/scan" element={<CameraScan />} />
-          <Route path="/scan/analizando" element={<AiAnalysis />} />
-          <Route path="/scan/resultado" element={<AiResult />} />
-          <Route path="/scan/decision" element={<AiRecommendation />} />
-          <Route path="/ideas" element={<IdeasReutilizacion />} />
-          <Route path="/market" element={<Marketplace />} />
-          <Route path="/mascota" element={<TuMascota />} />
-          <Route path="/recompensas" element={<Recompensas />} />
-          <Route path="/perfil/billetera" element={<EcoBilletera />} />
-          <Route path="/perfil" element={<MiPerfil />} />
-          <Route path="/recojo" element={<SolicitarRecojo />} />
-          <Route path="/recojo/estado" element={<EstadoRecojo />} />
-          <Route path="/perfil/historial" element={<HistorialCompleto />} />  
-          <Route path="/splash" element={<Splash />} />
-          <Route path="/onboarding/1" element={<OnboardingIdentify />} />
-          <Route path="/onboarding/2" element={<OnboardingScan />} />
-          <Route path="/onboarding/3" element={<OnboardingEarn />} />
-          <Route path="/login" element={<Login />} />
+      <Routes>
+       
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<AdminDashboard />} />
+          <Route path="solicitudes" element={<AdminSolicitudes />} />
+          <Route path="rutas" element={<AdminRutas />} />
+          <Route path="estadisticas" element={<AdminEstadisticas />} />
+        </Route>
 
-        </Routes>
-      </PhoneFrame>
+    
+        <Route
+          path="/*"
+          element={
+            <PhoneFrame>
+              <Routes>
+                <Route path="/chat" element={<ChatIA />} />
+                <Route path="/" element={<Home />} />
+                <Route path="/scan" element={<CameraScan />} />
+                <Route path="/scan/analizando" element={<AiAnalysis />} />
+                <Route path="/scan/resultado" element={<AiResult />} />
+                <Route path="/scan/decision" element={<AiRecommendation />} />
+                <Route path="/ideas" element={<IdeasReutilizacion />} />
+                <Route path="/market" element={<Marketplace />} />
+                <Route path="/mascota" element={<TuMascota />} />
+                <Route path="/recompensas" element={<Recompensas />} />
+                <Route path="/billetera" element={<EcoBilletera />} />
+                <Route path="/perfil" element={<MiPerfil />} />
+                <Route path="/recojo" element={<SolicitarRecojo />} />
+                <Route path="/recojo/estado" element={<EstadoRecojo />} />
+                <Route path="/perfil/historial" element={<HistorialCompleto />} />
+                <Route path="/splash" element={<Splash />} />
+                <Route path="/onboarding/1" element={<OnboardingIdentify />} />
+                <Route path="/onboarding/2" element={<OnboardingScan />} />
+                <Route path="/onboarding/3" element={<OnboardingEarn />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/billetera/retirar" element={<RetirarDinero />} />
+              </Routes>
+            </PhoneFrame>
+          }
+        />
+      </Routes>
     </BrowserRouter>
   );
 }

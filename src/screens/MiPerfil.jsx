@@ -23,7 +23,7 @@ function Toggle({ on, onChange }) {
 const actividadReciente = [
   {
     id: 1,
-    titulo: "8 Botellas PET escaneadas",
+    titulo: "16 Botellas PET escaneadas",
     detalle: "Detectado por IA · Eco-Scan",
     puntos: "+45",
     fecha: "Hace 2 horas",

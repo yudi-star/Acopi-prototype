@@ -11,9 +11,9 @@ const meses = [
 const movimientos = [
   {
     id: 1,
-    titulo: "Reciclaje de Plástico PET",
-    detalle: "Hoy, 10:42 AM • Máquina ACOPI-04",
-    monto: "+ S/ 2.50",
+    titulo: "Recojo Semanal - Plástico PET",
+    detalle: "Mar 14/7, 7:30 PM • Ruta San Isidro",
+    monto: "+ S/ 4.20",
     tipo: "positivo",
     icon: "recycling",
     iconBg: "#E8F5D8",
@@ -21,9 +21,9 @@ const movimientos = [
   },
   {
     id: 2,
-    titulo: "Reciclaje de Vidrio",
-    detalle: "Ayer, 16:15 PM • Centro de Acopio Norte",
-    monto: "+ S/ 1.80",
+    titulo: "Recojo Semanal - Cartón",
+    detalle: "Lun 6/7, 8:00 PM • Ruta San Isidro",
+    monto: "+ S/ 3.10",
     tipo: "positivo",
     icon: "recycling",
     iconBg: "#E8F5D8",
@@ -32,7 +32,7 @@ const movimientos = [
   {
     id: 3,
     titulo: "Retiro Yape",
-    detalle: "12 Abr, 09:00 AM",
+    detalle: "1 Jul, 09:00 AM",
     monto: "- S/ 15.00",
     tipo: "negativo",
     icon: "account_balance",
@@ -82,7 +82,7 @@ export default function EcoBilletera() {
           </div>
 
           <button
-            onClick={() => navigate("/perfil/billetera/retirar")}
+            onClick={() => navigate("/billetera/retirar")}
             className="relative z-10 w-full h-11 rounded-xl bg-gradient-to-r from-[#C0F200] to-[#9fc700] text-gray-900 font-bold text-[12px] flex items-center justify-center gap-2 shadow-[0_6px_16px_rgba(192,242,0,0.3)] active:scale-95 transition-all duration-200"
           >
             <span className="material-symbols-outlined text-[16px]">payments</span>
