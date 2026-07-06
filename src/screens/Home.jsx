@@ -4,7 +4,7 @@ import TopAppBar from "../components/layout/TopAppBar";
 const quickActions = [
   { label: "Chat IA", icon: "smart_toy", color: "text-[#0088CC]", bg: "bg-[#E5F6FF]", to: "/chat" },
   { label: "Marketplace", icon: "storefront", color: "text-[#D4A017]", bg: "bg-[#FFF8E7]", to: "/market" },
-  { label: "Mi Mascota", icon: "pets", color: "text-[#6B8E23]", bg: "bg-[#F0F8E2]" },
+  { label: "Mi Mascota", icon: "pets", color: "text-[#6B8E23]", bg: "bg-[#F0F8E2]", to: "/mascota" },
   { label: "Recojo", icon: "local_shipping", color: "text-[#696969]", bg: "bg-[#F5F5F5]", to: "/recojo/estado" },
 ];
 

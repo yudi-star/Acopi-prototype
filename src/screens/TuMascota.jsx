@@ -22,8 +22,25 @@ const TuMascota = () => {
 
     return (
         <div className="min-h-full pb-6 bg-gray-50/50">
-            <TopAppBar points="1,250" />
-
+            {/* Header con back + close */}
+            <div className="flex justify-between items-center px-4 pt-9 pb-3 sticky top-0 bg-white/90 backdrop-blur-xl z-20 border-b border-gray-100">
+                <button
+                    onClick={() => navigate(-1)}
+                    className="w-9 h-9 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-500 active:scale-90 transition-transform"
+                >
+                    <span className="material-symbols-outlined text-[18px]">arrow_back</span>
+                </button>
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+                    Mascota
+                </span>
+                <button
+                    onClick={() => navigate("/")}
+                    className="w-9 h-9 rounded-full bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-500 active:scale-90 transition-transform"
+                >
+                    <span className="material-symbols-outlined text-[18px]">close</span>
+                </button>
+            </div>
+            
             {/* Contenedor principal con padding para alinear todo */}
             <div className="px-4 mt-4">
                 <h1 className="text-2xl font-bold text-lime-900 text-center">Eco-Compañero</h1>
