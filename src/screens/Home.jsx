@@ -61,7 +61,7 @@ export default function Home() {
         </section>
 
         {/* TARJETA PANDA */}
-        <section className="bg-white rounded-[1.25rem] p-3.5 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex items-center gap-3">
+        <section onClick={() => navigate("/mascota")} className="bg-white rounded-[1.25rem] p-3.5 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex items-center gap-3">
 
           <div className="w-[60px] h-[60px] rounded-full bg-gray-100 flex-shrink-0 flex items-center justify-center text-3xl border border-gray-100 shadow-sm overflow-hidden">
             🐼

@@ -7,7 +7,8 @@ import AiResult from "./screens/AiResult";
 import AiRecommendation from "./screens/AiRecommendation";
 import IdeasReutilizacion from "./screens/IdeasReutilizacion";
 import Marketplace from "./screens/Marketplace";
-
+import TuMascota from "./screens/TuMascota";
+import Recompensas from "./screens/Recompensas";
 
 
 export default function App() {
@@ -22,6 +23,8 @@ export default function App() {
           <Route path="/scan/decision" element={<AiRecommendation />} />
           <Route path="/ideas" element={<IdeasReutilizacion />} />
           <Route path="/market" element={<Marketplace />} />
+          <Route path="/mascota" element={<TuMascota />} />
+          <Route path="/recompensas" element={<Recompensas />} />
           
           
         </Routes>
