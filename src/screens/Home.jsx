@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import TopAppBar from "../components/layout/TopAppBar";
+import pandaVideo from '../assets/videos/eco-panda.mp4';
 
 const quickActions = [
   { label: "Chat IA", icon: "smart_toy", color: "text-[#0088CC]", bg: "bg-[#E5F6FF]", to: "/chat" },
@@ -84,8 +85,15 @@ export default function Home() {
           className="bg-white rounded-[1.25rem] p-3.5 shadow-[0_4px_20px_rgb(0,0,0,0.03)] flex flex-col gap-3 cursor-pointer hover:bg-gray-50 transition-all duration-200"
         >
           <div className="flex items-center gap-3">
-            <div className="w-[60px] h-[60px] rounded-full bg-gray-100 flex-shrink-0 flex items-center justify-center text-3xl border border-gray-100 shadow-sm overflow-hidden">
-              🐼
+            <div className="w-[60px] h-[60px] rounded-full bg-gray-100 flex-shrink-0 flex items-center justify-center border border-gray-100 shadow-sm overflow-hidden">
+              <video
+                src={pandaVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+              />
             </div>
 
             <div className="flex flex-col gap-1 flex-grow">
