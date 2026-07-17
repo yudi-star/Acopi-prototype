@@ -20,11 +20,23 @@ const initialMessages = [
     rich: true,
     summary: {
       texto: "¡Sí! Ya alcanzaste el mínimo. Este es tu inventario acumulado:",
-      peso: "6.2",
+      peso: "8.4",
       unidad: "kg",
       items: [
-        { cantidad: 18, label: "Botellas PET", icon: "water_bottle", bg: "#E0F2FE", color: "#0288D1" },
-        { cantidad: 5, label: "Cajas de Cartón", icon: "inventory_2", bg: "#FEF3C7", color: "#D4A017" },
+        {
+          label: "Botellas PET",
+          cantidad: "3.2 / 3 kg", // Acumulado / Mínimo requerido
+          icon: "water_bottle",
+          bg: "#E0F2FE",
+          color: "#0288D1"
+        },
+        {
+          label: "Cartón",
+          cantidad: "5.2 / 5 kg",
+          icon: "inventory_2",
+          bg: "#FEF3C7",
+          color: "#D4A017"
+        },
       ],
       progreso: 100,
       progresoLabel: "Mínimo de recojo alcanzado",
@@ -49,96 +61,59 @@ function BotAvatar() {
 
 function SummaryCard({ summary, onProgramar }) {
   return (
-    <div className="bg-white rounded-[1.25rem] p-3.5 shadow-[0_4px_20px_rgb(0,0,0,0.03)] max-w-[85%] flex flex-col gap-3">
-      <p className="text-[12px] text-gray-800 leading-snug">{summary.texto}</p>
+    <div className="bg-white rounded-[1.25rem] p-3 shadow-[0_4px_20px_rgb(0,0,0,0.03)] max-w-[85%] flex flex-col gap-2">
+      <p className="text-[11px] text-gray-800 leading-snug">{summary.texto}</p>
 
-      <div className="flex items-center gap-2.5 bg-[#E8F5D8] rounded-xl p-2.5 border border-[#D4E8B5]">
-        <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center flex-shrink-0 shadow-sm">
-          <span
-            className="material-symbols-outlined text-[16px] text-[#536600]"
-            style={{ fontVariationSettings: "'FILL' 1" }}
-          >
-            scale
-          </span>
+      {/* Bloque de Peso Total más compacto */}
+      <div className="flex items-center gap-2 bg-[#E8F5D8] rounded-xl p-2 border border-[#D4E8B5]">
+        <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center flex-shrink-0 shadow-sm">
+          <span className="material-symbols-outlined text-[14px] text-[#536600]" style={{ fontVariationSettings: "'FILL' 1" }}>scale</span>
         </div>
         <div className="flex items-baseline gap-1">
-          <span className="text-lg font-extrabold text-[#3A4D00] leading-none">
-            {summary.peso}
-          </span>
-          <span className="text-[11px] font-bold text-[#536600] leading-none">
-            {summary.unidad}
-          </span>
+          <span className="text-lg font-extrabold text-[#3A4D00] leading-none">{summary.peso}</span>
+          <span className="text-[10px] font-bold text-[#536600] leading-none">{summary.unidad}</span>
         </div>
         <span className="text-[7px] font-extrabold text-[#536600] uppercase tracking-wider ml-auto text-right leading-tight">
           Peso Total
-          <br />
-          Acumulado
         </span>
       </div>
 
+      {/* Items de materiales - altura reducida */}
       <div className="flex flex-col gap-1.5">
         {summary.items.map((it, idx) => (
-          <div
-            key={idx}
-            className="bg-gray-50 rounded-lg p-2.5 flex items-center gap-3 border border-gray-100"
-          >
-            <div
-              className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
-              style={{ backgroundColor: it.bg, color: it.color }}
-            >
-              <span
-                className="material-symbols-outlined text-[18px]"
-                style={{ fontVariationSettings: "'FILL' 1" }}
-              >
-                {it.icon}
-              </span>
+          <div key={idx} className="bg-gray-50 rounded-lg p-2 flex items-center gap-2 border border-gray-100">
+            <div className="w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: it.bg, color: it.color }}>
+              <span className="material-symbols-outlined text-[16px]" style={{ fontVariationSettings: "'FILL' 1" }}>{it.icon}</span>
             </div>
             <div className="flex items-baseline gap-1.5 min-w-0 flex-1">
-              <span className="text-lg font-extrabold text-gray-900 leading-none flex-shrink-0">
-                {it.cantidad}
-              </span>
-              <span className="text-[11px] text-gray-600 font-semibold whitespace-nowrap">
-                {it.label}
-              </span>
+              <span className="text-sm font-extrabold text-gray-900 leading-none">{it.cantidad}</span>
+              <span className="text-[10px] text-gray-600 font-semibold truncate">{it.label}</span>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="flex flex-col gap-1.5">
+      {/* Progreso y Botón ajustados */}
+      <div className="flex flex-col gap-1">
         <div className="flex justify-between items-end">
-          <span className="text-[10px] font-bold text-gray-700">
-            {summary.progresoLabel}
-          </span>
-          <span className="text-[10px] font-extrabold text-[#536600]">
-            {summary.progreso}%
-          </span>
+          <span className="text-[9px] font-bold text-gray-700">{summary.progresoLabel}</span>
+          <span className="text-[9px] font-extrabold text-[#536600]">{summary.progreso}%</span>
         </div>
-        <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden p-[1px] shadow-inner">
-          <div
-            className="h-full rounded-full"
-            style={{
-              width: `${summary.progreso}%`,
-              background: "linear-gradient(90deg, #C0F200, #38BDF8)",
-            }}
-          />
+        <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden shadow-inner">
+          <div className="h-full rounded-full" style={{ width: `${summary.progreso}%`, background: "linear-gradient(90deg, #C0F200, #38BDF8)" }} />
         </div>
-        <p className="text-[10px] text-gray-500 leading-snug">
-          {summary.detalle}
-        </p>
       </div>
 
       <button
         onClick={onProgramar}
         disabled={!summary.minimoAlcanzado}
-        className={`w-full h-11 rounded-xl font-bold text-[12px] flex items-center justify-center gap-2 transition-all ${
-          summary.minimoAlcanzado
-            ? "bg-gradient-to-r from-[#C0F200] to-[#9fc700] text-gray-900 shadow-[0_6px_16px_rgba(192,242,0,0.3)] active:scale-95"
-            : "bg-gray-100 text-gray-400 cursor-not-allowed"
-        }`}
+        className={`w-full h-10 rounded-xl font-bold text-[11px] flex items-center justify-center gap-2 transition-all ${summary.minimoAlcanzado
+          ? "bg-gradient-to-r from-[#C0F200] to-[#9fc700] text-gray-900 shadow-[0_4px_12px_rgba(192,242,0,0.2)] active:scale-95"
+          : "bg-gray-100 text-gray-400 cursor-not-allowed"
+          }`}
       >
-        <span className="material-symbols-outlined text-[16px]">local_shipping</span>
-        {summary.minimoAlcanzado ? "Programar Recojo Ahora" : "Sigue acumulando material"}
+        <span className="material-symbols-outlined text-[14px]">local_shipping</span>
+        {summary.minimoAlcanzado ? "Programar Recojo" : "Sigue acumulando"}
       </button>
     </div>
   );
@@ -289,47 +264,47 @@ export default function ChatIA() {
 
       {/* Input - fondo SÓLIDO, sin transparencia */}
       <div className="fixed bottom-24 left-0 right-0 bg-white border-t border-gray-100 px-4 pt-2 pb-3 z-20">
-      <div className="bg-gray-50 rounded-full shadow-[0_2px_8px_rgb(0,0,0,0.04)] flex items-center pl-2 pr-1 py-1 gap-1 border border-gray-100">
-        <button
-          onClick={() => navigate("/scan")}
-          className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-gray-500 flex-shrink-0 active:scale-90 transition-transform"
-        >
-          <span className="material-symbols-outlined text-[16px]">photo_camera</span>
-        </button>
+        <div className="bg-gray-50 rounded-full shadow-[0_2px_8px_rgb(0,0,0,0.04)] flex items-center pl-2 pr-1 py-1 gap-1 border border-gray-100">
+          <button
+            onClick={() => navigate("/scan")}
+            className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-gray-500 flex-shrink-0 active:scale-90 transition-transform"
+          >
+            <span className="material-symbols-outlined text-[16px]">photo_camera</span>
+          </button>
 
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && sendMessage()}
-          placeholder="Escribe un mensaje..."
-          className="flex-1 bg-transparent outline-none text-[12px] text-gray-700 placeholder-gray-400 px-1 min-w-0"
-        />
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && sendMessage()}
+            placeholder="Escribe un mensaje..."
+            className="flex-1 bg-transparent outline-none text-[12px] text-gray-700 placeholder-gray-400 px-1 min-w-0"
+          />
 
-        {/* Botón subir imagen (input file oculto) */}
-        <button
-          onClick={() => fileInputRef.current?.click()}
-          className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-gray-500 flex-shrink-0 active:scale-90 transition-transform"
-        >
-          <span className="material-symbols-outlined text-[16px]">image</span>
-        </button>
-        <input
-          ref={fileInputRef}
-          type="file"
-          accept="image/*"
-          onChange={handleImagenSubida}
-          className="hidden"
-        />
+          {/* Botón subir imagen (input file oculto) */}
+          <button
+            onClick={() => fileInputRef.current?.click()}
+            className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-gray-500 flex-shrink-0 active:scale-90 transition-transform"
+          >
+            <span className="material-symbols-outlined text-[16px]">image</span>
+          </button>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*"
+            onChange={handleImagenSubida}
+            className="hidden"
+          />
 
-        <button
-          onClick={sendMessage}
-          disabled={!input.trim()}
-          className="w-8 h-8 rounded-full bg-[#C0F200] flex items-center justify-center flex-shrink-0 active:scale-90 transition-transform disabled:opacity-40"
-        >
-          <span className="material-symbols-outlined text-[16px] text-gray-900">send</span>
-        </button>
+          <button
+            onClick={sendMessage}
+            disabled={!input.trim()}
+            className="w-8 h-8 rounded-full bg-[#C0F200] flex items-center justify-center flex-shrink-0 active:scale-90 transition-transform disabled:opacity-40"
+          >
+            <span className="material-symbols-outlined text-[16px] text-gray-900">send</span>
+          </button>
+        </div>
       </div>
-    </div>
 
       <RecojoModal
         isOpen={modalAbierto}

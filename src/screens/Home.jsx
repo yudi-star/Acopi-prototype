@@ -1,6 +1,8 @@
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import TopAppBar from "../components/layout/TopAppBar";
 import pandaVideo from '../assets/videos/eco-panda.mp4';
+import pandasoImg from '../assets/images/panda solo.png';
 
 const quickActions = [
   { label: "Chat IA", icon: "smart_toy", color: "text-[#0088CC]", bg: "bg-[#E5F6FF]", to: "/chat" },
@@ -11,10 +13,25 @@ const quickActions = [
 
 export default function Home() {
   const navigate = useNavigate();
+  const [visible, setVisible] = useState(true);
+  const [animatingOut, setAnimatingOut] = useState(false);
+
+  useEffect(() => {
+    // 3. Lógica: esperar 4s, iniciar animación de salida, luego quitar del DOM
+    const timer = setTimeout(() => {
+      setAnimatingOut(true);
+      setTimeout(() => setVisible(false), 500);
+    }, 4000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
-    <div className="min-h-full pb-32 bg-gray-50/50">
+    <div className="min-h-full pb-32 bg-gray-50/50 relative">
       <style>{`
+        @keyframes slideUp { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+        .animate-slide-up { animation: slideUp 0.6s ease-out forwards; }
+        .animate-fade-out { animation: fadeOut 0.5s ease-out forwards; }
         @keyframes fill-bar {
           0% { width: 0%; }
           100% { width: 75%; }
@@ -29,6 +46,27 @@ export default function Home() {
           animation: fill-bar 1.5s cubic-bezier(0.1, 0.8, 0.2, 1) forwards, flow-water 2.5s linear infinite;
         }
       `}</style>
+
+      {/* MASCOTA DE BIENVENIDA (FLOTANTE) */}
+      {visible && (
+        <div className={`fixed bottom-24 right-4 z-50 flex flex-col items-center gap-1 ${animatingOut ? 'animate-fade-out' : 'animate-slide-up'}`}>
+
+          {/* Burbuja con punta hacia abajo */}
+          <div className="relative bg-white px-3 py-2 rounded-2xl shadow-lg border border-lime-100 text-[10px] font-bold text-lime-900 max-w-[140px] text-center mb-1">
+            ¡Hola Yudith! 👋 ¡Vamos a transformar el mundo!
+
+            {/* La punta (triángulo) */}
+            <div className="absolute -bottom-2 left-1/2 -ml-2 w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[8px] border-t-white"></div>
+            {/* Sombra de la punta (opcional, para que coincida con la burbuja) */}
+            <div className="absolute -bottom-[9px] left-1/2 -ml-2 w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[8px] border-t-lime-100 -z-10"></div>
+          </div>
+
+          {/* Mascota */}
+          <div className="w-20 h-20 rounded-full border-4 border-white shadow-xl overflow-hidden bg-white flex-shrink-0 animate-bounce-slow">
+            <video src={pandaVideo} autoPlay loop muted playsInline className="w-full h-full object-cover" />
+          </div>
+        </div>
+      )}
 
       <TopAppBar points="1,250" />
 
@@ -86,12 +124,9 @@ export default function Home() {
         >
           <div className="flex items-center gap-3">
             <div className="w-[60px] h-[60px] rounded-full bg-gray-100 flex-shrink-0 flex items-center justify-center border border-gray-100 shadow-sm overflow-hidden">
-              <video
-                src={pandaVideo}
-                autoPlay
-                loop
-                muted
-                playsInline
+              <img
+                src={pandasoImg}
+                alt="Eco-Panda"
                 className="w-full h-full object-cover"
               />
             </div>
