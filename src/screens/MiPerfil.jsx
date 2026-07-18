@@ -117,7 +117,7 @@ export default function MiPerfil() {
               eco
             </span>
             <span className="text-[10px] font-bold text-[#0288D1] tracking-wide">
-              Explorador Eco - Nivel 24
+              Explorador Eco - Nivel 12
             </span>
           </div>
         </section>
@@ -129,7 +129,7 @@ export default function MiPerfil() {
           </span>
           <div className="flex justify-between items-end">
             <span className="text-xl font-extrabold text-[#536600] leading-none">
-              Nivel 25
+              Nivel 13
             </span>
             <span className="text-[12px] font-bold text-gray-700">
               1,250 / 2,000 pts

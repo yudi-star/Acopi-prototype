@@ -86,7 +86,7 @@ export default function EcoBilletera() {
             className="relative z-10 w-full h-11 rounded-xl bg-gradient-to-r from-[#C0F200] to-[#9fc700] text-gray-900 font-bold text-[12px] flex items-center justify-center gap-2 shadow-[0_6px_16px_rgba(192,242,0,0.3)] active:scale-95 transition-all duration-200"
           >
             <span className="material-symbols-outlined text-[16px]">payments</span>
-            Retirar mediante Yape
+            Retirar
           </button>
 
           <p className="text-[9px] text-gray-400 text-center relative z-10 -mt-1">

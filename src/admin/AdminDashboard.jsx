@@ -3,7 +3,7 @@ const solicitudesPendientes = [
     id: 1,
     nombre: "Yudith Pacco",
     direccion: "Av. José Larco 1234, San Isidro",
-    materiales: "18 Botellas PET, 5 Cajas de Cartón",
+    materiales: "15 Botellas PET, 1 Caja de Cartón",
     peso: "6.2 kg",
     horario: "Mar 14/7, 7:00 PM - 10:00 PM",
     estado: "pendiente",
