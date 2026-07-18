@@ -53,7 +53,7 @@ export default function Home() {
 
           {/* Burbuja con punta hacia abajo */}
           <div className="relative bg-white px-3 py-2 rounded-2xl shadow-lg border border-lime-100 text-[10px] font-bold text-lime-900 max-w-[140px] text-center mb-1">
-            ¡Hola Yudith! 👋 ¡Vamos a transformar el mundo!
+            ¡Hola!👋 Estoy feliz de volver a verte ❤️. ¿Listo para reciclar hoy?
 
             {/* La punta (triángulo) */}
             <div className="absolute -bottom-2 left-1/2 -ml-2 w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[8px] border-t-white"></div>

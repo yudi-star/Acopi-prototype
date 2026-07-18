@@ -252,9 +252,10 @@ export default function Marketplace() {
 
       <button
         onClick={() => setModalAbierto(true)}
-        className="fixed bottom-24 right-4 w-14 h-14 bg-[#C0F200] rounded-full flex items-center justify-center shadow-[0_8px_24px_rgba(192,242,0,0.4)] active:scale-90 transition-transform z-30"
+        className="fixed bottom-24 right-4 h-12 px-4 bg-[#C0F200] rounded-full flex items-center gap-1.5 shadow-[0_8px_24px_rgba(192,242,0,0.4)] active:scale-95 transition-transform z-30"
       >
-        <span className="material-symbols-outlined text-gray-900 text-[24px]">add</span>
+        <span className="material-symbols-outlined text-gray-900 text-[20px]">add</span>
+        <span className="text-gray-900 text-[12px] font-bold">Publicar</span>
       </button>
 
       <PublicarModal
